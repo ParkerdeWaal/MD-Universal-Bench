@@ -1,0 +1,53 @@
+# NAMD CONFIGURATION FILE FOR 90k atom Benchmark
+
+# molecular system
+amber           yes
+parmfile        system.prmtop
+coordinates     system.coor
+#velocities      ../heated.vel
+# force field
+rigidBonds      all
+rigidTolerance  0.0005
+exclude         scaled1-4
+1-4scaling	0.83333
+
+# unitCell
+cellBasisVector1     100.1931049 0.0 0.0
+cellBasisVector2     0.0 100.1931049 0.0
+cellBasisVector3     0.0 0.0 100.1931049
+
+# PME
+PME                  on
+PMEGridSizeX         108
+PMEGridSizeY         108
+PMEGridSizeZ         108
+
+# approximations
+switching	on
+switchdist	8
+cutoff          10
+pairlistdist    13.5
+margin          0
+stepspercycle   10
+
+# integrator
+timestep        1.0
+
+
+# output
+# output
+outputenergies  10000
+outputtiming    10000
+outputname	bench.out
+
+# Constant Temperature Control
+langevin on ;# do langevin dynamics
+langevinDamping 5 ;# damping coefficient (gamma) of 5/ps
+langevinTemp 300
+langevinHydrogen off ;# don't couple langevin bath to hydrogens
+
+
+# protocol
+seed            83623
+temperature     300
+numsteps        50000

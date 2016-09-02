@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#PBS -N namdBench
+#PBS -l nodes=10:ppn=28
+#PBS -j oe
+#PBS -q longq
+#PBS -l walltime=480:00:00
+
+cd  $PBS_O_WORKDIR
+export PATH=$PATH:~/applications/gromacs-5.0.6/bin
+list=`cat $PBS_NODEFILE|uniq`;for item in $list; do echo 10.152.220.$((`echo $item |sed -e 's/node//g;s/^0*//g'` +20));done >nodes
+
+mpirun -f nodes -np 280 ~/xu-primary/pdewaal/applications/NAMD_2.11_Source/Linux-x86_64-g++/namd2 bench.namd > native
+mpirun -f nodes -np 280 ~/xu-primary/pdewaal/applications/NAMD_2.11_Source/Linux-x86_64-g++/namd2 meta.bench.namd > bias

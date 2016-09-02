@@ -1,0 +1,28 @@
+;
+;	File 'topol_Other.itp' was generated
+;	By user: parker.dewaal (1351811394)
+;	On host: login01
+;	At date: Tue Aug 30 22:06:41 2016
+;
+;	This is a include topology file
+;
+;	Created by:
+;	GROMACS:      gmx pdb2gmx, VERSION 5.0.6
+;	Executable:   /home/parker.dewaal/applications/gromacs-5.0.6/bin/gmx
+;	Library dir:  /home/parker.dewaal/applications/gromacs-5.0.6/share/gromacs/top
+;	Command line:
+;	  pdb2gmx -f noCaps -o system.gro -ter
+;	Force field was read from the standard Gromacs share directory.
+;
+
+[ moleculetype ]
+; Name            nrexcl
+Other               3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue   0 CLA rtp CLA  q -1.0
+     1        CLA      00   CLA    CLA      1         -1      35.45   ; qtot -1
+; residue   0 CLA rtp CLA  q -1.0
+     2        CLA      01   CLA    CLA      2         -1      35.45   ; qtot -2
+

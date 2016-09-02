@@ -1,0 +1,50 @@
+Colvarstrajfrequency 50000
+colvarsRestartFrequency 50000
+
+colvar {
+  name cv1
+  width 0.1
+  lowerboundary 1.0
+  upperboundary 32.0
+  lowerwallconstant 10.0
+  upperwallconstant 10.0
+  rmsd {
+    atoms { 
+       atomNumbers { 5 22 44 66 } 
+    }
+    refPositions { 
+       (47.380,56.000,47.350)
+       (47.380,56.000,47.350)
+       (47.380,56.000,47.350)
+       (47.380,56.000,47.350)
+    }
+  }
+}
+
+colvar {
+  name cv2
+  width 0.1
+  lowerboundary 1.0
+  upperboundary 32.0
+  lowerwallconstant 10.0
+  upperwallconstant 10.0
+  rmsd {
+    atoms {
+       atomNumbers { 85 104 121 140  }
+    }
+    refPositions {
+       (47.380,56.000,47.350)
+       (47.380,56.000,47.350)
+       (47.380,56.000,47.350)
+       (47.380,56.000,47.350)
+    }
+  }
+}
+
+
+metadynamics {
+  wellTempered on
+  biasTemperature 10000
+  writeFreeEnergyFile 
+  colvars cv1 cv2
+}
